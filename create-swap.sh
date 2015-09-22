@@ -13,6 +13,7 @@ fi
 SWAP_MB=$1
 if [[ "$SWAP_MB" != "0" ]]; then
   dd if=/dev/zero of=/vol0/swap bs=1M count=$SWAP_MB
+  chmod 0600 /vol0/swap
   mkswap /vol0/swap
   swapon /vol0/swap
   echo "Added $SWAP_MB MB swap file /vol0/swap"
